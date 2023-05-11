@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver pay</title>
+    <link rel="stylesheet" href="pay.css">
+</head>
+<body>
+    <!--Copy and paste this into all your other files-->
+    <Header>
+        <!--Brian -- I think you meant character-->
+        <h1 class="animate-charcter"> BIG STAR TRANSPORTATION DRIVER PAY.</h1>
+        <div class="nav">
+            <ul class="menu">
+                <ul class="toplist">
+                    <li><a href="FinalProject.html"><button ><span>HOME</span></button></a></li>
+                </ul>
+            </ul>
+        </div>
+     </Header>
+     <h1 class="payto" >YOUR ESTIMATE PAY IS: $<span id="pay"></span></h1>
+     <h2>MOST OF OUR DRIVERS AT LEAST MAKE $7000 PER TWO WEEKS</h2> 
+     <form>
+        <label>
+            <li> Enter Your Estimate Gross for 2 weeks </li>
+            <input name = "Grossval" type="number" autofocus placeholder="Enter your Estimate here" required min="7000" max="30000"/>
+        </label>
+        <button class="mainbutton">Calculate</button>
+     </form>
+     <script>
+        let myForm = document.querySelector('form');
+        myForm.addEventListener('submit', (event)=>{
+            event.preventDefault();
+            let myFormData = new FormData(myForm);
+            let grossval = myFormData.get('Grossval');
+            let totalval = (grossval - grossval*0.12) / 2;
+            console.log(totalval);
+            window.alert("This is your estimate $" + totalval);
+            document.getElementById("pay").innerText = totalval;
+        });
+    </script>
+    <footer class="footage">
+        Big Star Transportation <br>
+        US DOT 2889911 <br>
+        US MC 970804 <br>
+        Burnsville, MN 
+    </footer>
+</body>
+</html>
